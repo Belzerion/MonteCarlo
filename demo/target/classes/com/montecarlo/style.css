@@ -1,0 +1,47 @@
+/* style.css */
+.root {
+    -fx-padding: 10;
+    -fx-background-color: #f0f0f0;
+}
+
+.hbox {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+}
+
+.text-field {
+    -fx-font-size: 14px;
+    -fx-padding: 5;
+    -fx-border-color: #bdbdbd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.button {
+    -fx-font-size: 14px;
+    -fx-padding: 5 10;
+    -fx-background-color: #4caf50;
+    -fx-text-fill: white;
+    -fx-border-color: #388e3c;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.button:hover {
+    -fx-background-color: #45a049;
+}
+
+.canvas {
+    -fx-border-color: #bdbdbd;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+}
+
+.text-area {
+    -fx-font-size: 14px;
+    -fx-padding: 5;
+    -fx-border-color: #bdbdbd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+
+}
