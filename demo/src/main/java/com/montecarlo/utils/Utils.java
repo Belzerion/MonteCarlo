@@ -19,4 +19,20 @@ public class Utils {
         }
         return randomNumbers;
     }
+
+    public static List<List<Double>> getFCoordinates()
+    {
+        List<Double> x = new ArrayList<>();
+        List<Double> y = new ArrayList<>();
+        List<List<Double>> coordinates = new ArrayList<>();
+        for (int i = 0; i < 800; i++)
+        {
+            double temp = (double)i/800.0;
+            x.add(temp);
+            y.add(Math.sqrt(1- Math.pow(temp, 2.0)));
+        }
+        coordinates.add(x);
+        coordinates.add(y);
+        return coordinates;
+    }
 }

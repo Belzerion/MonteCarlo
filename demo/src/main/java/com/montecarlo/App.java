@@ -8,7 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -89,7 +92,7 @@ public class App extends Application {
         });
 
         drawFunc.setOnAction(e -> {
-            List<List<Double>> coord = getFCoordinates();
+            List<List<Double>> coord = Utils.getFCoordinates();
             try {
                 drawPoints(gc, coord.get(0), coord.get(1), Color.BLACK);
             } catch (InterruptedException e1) {
@@ -101,7 +104,17 @@ public class App extends Application {
         // Action du bouton pour dessiner des points
         drawButton.setOnAction(e -> {
             String input = textField.getText();
-            Integer samples = Integer.parseInt(input);
+            Integer samples = 0;
+            try
+            {
+                samples = Integer.parseInt(input);
+            }
+            catch (final NumberFormatException nbe)
+            {
+                Alert alert = new Alert(AlertType.ERROR, "Enter a valid number of Points", ButtonType.OK);
+                alert.showAndWait();
+            }
+
             final List<Double> x = Utils.getRand(samples);
             final List<Double> y = Utils.getRand(samples);
             try {
@@ -111,6 +124,7 @@ public class App extends Application {
 
             } catch (InterruptedException e1) {
                 // TODO Auto-generated catch block
+                
                 e1.printStackTrace();
             }
         });
@@ -150,6 +164,7 @@ public class App extends Application {
         gc.setLineWidth(2);
     }
 
+
     private double getEstim(final List<Double> x, final List<Double> y)
     {
         tot += x.size();
@@ -161,22 +176,6 @@ public class App extends Application {
             }
         }
         return 4*in/tot;
-    }
-
-    private List<List<Double>> getFCoordinates()
-    {
-        List<Double> x = new ArrayList<>();
-        List<Double> y = new ArrayList<>();
-        List<List<Double>> coordinates = new ArrayList<>();
-        for (int i = 0; i < 800; i++)
-        {
-            double temp = (double)i/800.0;
-            x.add(temp);
-            y.add(Math.sqrt(1- Math.pow(temp, 2.0)));
-        }
-        coordinates.add(x);
-        coordinates.add(y);
-        return coordinates;
     }
 
     public static void main(String[] args) {
