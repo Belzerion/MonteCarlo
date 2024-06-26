@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.Vector;
 
 public class Utils {
+
     
     public static List<Double> getRand(final int samples)
     {

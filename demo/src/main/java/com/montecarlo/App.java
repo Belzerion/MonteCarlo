@@ -133,7 +133,7 @@ public class App extends Application {
             clearCanvas(gc);
         });
 
-        Scene scene = new Scene(root, 900, 800); // Taille ajustée pour inclure la zone de texte et le bouton
+        Scene scene = new Scene(root, 1000, 800); // Taille ajustée pour inclure la zone de texte et le bouton
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm()); // Ajouter la feuille de style CSS
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -161,6 +161,8 @@ public class App extends Application {
         gc.setFill(Color.WHITE);
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         gc.setStroke(Color.BLACK);
+        piEstimatio.setText("PI ~ ");
+        numberOfPoints.setText("0 Points");
         gc.setLineWidth(2);
     }
 
